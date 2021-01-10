@@ -23,7 +23,7 @@ const Footer = () => {
     </FooterWrapper>
   );
 };
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.footer`
   background: var(--darkGrey);
   color: var(--mainWhite);
   .icon{

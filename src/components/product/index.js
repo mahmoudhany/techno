@@ -22,12 +22,12 @@ const Product = ({ product }) => {
               />
               <div className="product-icons">
                 <Link
-                  to={`/product/${product.id}`}
+                  to={`/products/${product.id}`}
                   onClick={() => { setSingleProduct(product.id) }}
                 >
                   <FaSearch className='icon' />
                 </Link>
-                <FaCartPlus className='icon' onClick={() => { addToCart(product.id) }} />
+                <FaCartPlus className='icon' onClick={() => addToCart(product.id)} />
               </div>
             </div>
             <div className="card-body d-flex justify-content-between">
