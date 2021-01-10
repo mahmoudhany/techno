@@ -4,7 +4,7 @@ import {
   AboutPage,
   CartPage, ContactPage,
   DefaultPage, HomePage,
-  Products, SingleProductPage,
+  ProductsPage, SingleProductPage,
 } from "./pages";
 import { Navbar, Sidebar, SideCart, Footer } from "./components";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,8 +23,8 @@ function App() {
         <Route path='/' exact component={HomePage} />
         <Route path='/about' component={AboutPage} />
         <Route path='/contact' component={ContactPage} />
-        <Route path='/products' exact component={Products} />
-        <Route path='/products/:id' component={SingleProductPage} />
+        <Route path='/Products' exact component={ProductsPage} />
+        <Route path='/Products/:id' component={SingleProductPage} />
         <Route path='/cart' component={CartPage} />
         <Route component={DefaultPage} />
       </Switch>

@@ -9,6 +9,7 @@ import Contact from './contact'
 import Services from './services'
 import Featured from './featured'
 import Product from './product';
+import Products from './products';
 
 export {
   Navbar,
@@ -21,5 +22,6 @@ export {
   Contact,
   Services,
   Featured,
-  Product
+  Product,
+  Products
 }
