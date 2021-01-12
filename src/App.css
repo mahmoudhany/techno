@@ -8,7 +8,7 @@
   --mainWhite: #fff;
   --mainBlack: #222;
   --mainTransition: all 0.3s ease-in-out;
-  --mainSpacing: 0.3rem;
+  --mainSpacing: 0.2rem;
 }
 * {
   box-sizing: border-box;
@@ -42,4 +42,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   background: var(--mainGrey);
+}
+.cart-icon {
+  cursor: pointer;
 }

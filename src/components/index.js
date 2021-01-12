@@ -10,6 +10,8 @@ import Services from './services'
 import Featured from './featured'
 import Product from './product';
 import Products from './products';
+import Cart from './cart';
+import FilterProducts from './filter';
 
 export {
   Navbar,
@@ -23,5 +25,7 @@ export {
   Services,
   Featured,
   Product,
-  Products
+  Products,
+  Cart,
+  FilterProducts
 }
