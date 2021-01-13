@@ -8,24 +8,30 @@ const SideCart = () => {
   const { cartOpen, closeCart, cart, cartTotal } = useContext(ProductContext)
   return (
     <CartWrapper show={cartOpen} onClick={closeCart}>
-      <ul>
-        {
-          cart.map(item => (
-            <li key={item.id} className='cart-item mb-4'>
-              <img width='35' src={`../${item.image}`} alt="cart item" />
-              <div className="mt-3">
-                <h6 className="text-uppercase">{item.title}</h6>
-                <h6 className="text-title text-uppercase">amount: {item.count}</h6>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-      <h4 className="text-capitalize text-main">cart total: ${cartTotal}</h4>
-      <div className="text-center my-5">
-        <Link to='/cart' className='main-link'>Cart page</Link>
-      </div>
-    </CartWrapper>
+      {
+        cart.length === 0 ?
+          <h3 className='text-center text-title'>Cart is empty</h3> :
+          <div>
+            <ul>
+              {
+                cart.map(item => (
+                  <li key={item.id} className='cart-item mb-4'>
+                    <img width='35' src={`../${item.image}`} alt="cart item" />
+                    <div className="mt-3">
+                      <h6 className="text-uppercase">{item.title}</h6>
+                      <h6 className="text-title text-uppercase">amount: {item.count}</h6>
+                    </div>
+                  </li>
+                ))
+              }
+            </ul>
+            <h4 className="text-capitalize text-main">cart total: ${cartTotal}</h4>
+            <div className="text-center my-5">
+              <Link to='/cart' className='main-link'>Cart page</Link>
+            </div>
+          </div>
+      }
+    </CartWrapper >
   );
 };
 
