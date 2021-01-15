@@ -5,4 +5,5 @@ import DefaultPage from './DefaultPage'
 import HomePage from './HomePage'
 import ProductsPage from './ProductsPage'
 import SingleProductPage from './SingleProductPage'
-export { AboutPage, CartPage, ContactPage, DefaultPage, HomePage, ProductsPage, SingleProductPage };
+import SignupPage from './SignupPage'
+export { AboutPage, CartPage, ContactPage, DefaultPage, HomePage, ProductsPage, SingleProductPage, SignupPage };

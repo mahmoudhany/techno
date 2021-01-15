@@ -12,6 +12,7 @@ import Product from './product';
 import Products from './products';
 import Cart from './cart';
 import FilterProducts from './filter';
+import Input from './input';
 
 export {
   Navbar,
@@ -27,5 +28,6 @@ export {
   Product,
   Products,
   Cart,
-  FilterProducts
+  FilterProducts,
+  Input
 }
