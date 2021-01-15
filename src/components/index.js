@@ -12,6 +12,9 @@ import Product from './product';
 import Products from './products';
 import Cart from './cart';
 import FilterProducts from './filter';
+import Input from './input';
+import Alert from './alert';
+import PrivateRoute from './privateRoute';
 
 export {
   Navbar,
@@ -27,5 +30,8 @@ export {
   Product,
   Products,
   Cart,
-  FilterProducts
+  FilterProducts,
+  Input,
+  Alert,
+  PrivateRoute
 }

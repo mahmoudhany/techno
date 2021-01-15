@@ -1,35 +1,49 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
+import { useAuth } from './context/AuthContext';
 import {
   AboutPage,
   CartPage, ContactPage,
   DefaultPage, HomePage,
-  ProductsPage, SingleProductPage,
+  ProductsPage, SingleProductPage, SignupPage, LoginPage,
 } from "./pages";
-import { Navbar, Sidebar, SideCart, Footer } from "./components";
+import { Navbar, Sidebar, SideCart, Footer, PrivateRoute } from "./components";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import "./style/style.css";
 import './App.css'
 
-
-
 function App() {
+  const { currentUser } = useAuth()
+
   return (
+
     <div className="App">
       <Navbar />
       <Sidebar />
       <SideCart />
+      {/* <div> */}
       <Switch>
         <Route path='/' exact component={HomePage} />
         <Route path='/about' component={AboutPage} />
         <Route path='/contact' component={ContactPage} />
         <Route path='/Products' exact component={ProductsPage} />
         <Route path='/Products/:id' component={SingleProductPage} />
-        <Route path='/cart' component={CartPage} />
+        <PrivateRoute path='/cart' component={CartPage} />
+        {/* // signup */}
+        {
+          !currentUser ?
+            <>
+              <Route path='/signup' exact component={SignupPage} />
+              <Route path='/login' exact component={LoginPage} />
+            </>
+            :
+            <Redirect to='/' />
+        }
+
         <Route component={DefaultPage} />
       </Switch>
+      {/* </div> */}
       <Footer />
-    </div>
+    </div >
   );
 }
 

@@ -33,15 +33,25 @@
   outline-offset: 4px;
   border: none;
 }
+.main-link:disabled {
+  cursor: not-allowed;
+}
+
 .main-link:hover {
   background: var(--darkGrey);
   text-decoration: none;
   color: var(--primaryColor);
   outline-color: var(--darkGrey);
 }
+#logout:hover {
+  background: #ef4f4f;
+}
 body {
   font-family: "Open Sans", sans-serif;
   background: var(--mainGrey);
+}
+App {
+  min-height: 100%;
 }
 .cart-icon {
   cursor: pointer;

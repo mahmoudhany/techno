@@ -1,26 +1,56 @@
 import React, { useContext } from 'react';
 import { ProductContext } from "../../context";
+import { useAuth } from "../../context/AuthContext";
+
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
 const Sidebar = () => {
   const { links, sidebarOpen, handleSidebar } = useContext(ProductContext)
+  const { currentUser, logout } = useAuth();
   return (
     <div>
       <SidebarWrapper show={sidebarOpen}>
         <ul>
           {
-            links.map(link => (
-              <li key={link.id}>
+            links.map(({ id, path, text }) => (
+              <li key={id}>
                 <Link
-                  to={link.path}
+                  to={path}
                   className='sidebar-link'
                   onClick={handleSidebar}
-                >{link.text}</Link>
+                >{text}</Link>
               </li>
             ))
           }
+          {currentUser ?
+            <li>
+              <Link
+                id="logout"
+                to='/logout'
+                className='sidebar-link'
+                onClick={() => {
+                  logout()
+                  handleSidebar()
+                }}
+              >logout</Link>
+            </li> :
+            <li>
+              <Link
+                to='/login'
+                className='sidebar-link'
+                onClick={handleSidebar}
+              >login</Link>
+            </li>
+          }
         </ul>
+        {/* {currentUser &&
+          <div className='text-center'>
+            <Link
+              className='main-link text-center'
+              onClick={() => }
+            >Log out</Link>
+          </div>} */}
       </SidebarWrapper>
     </div>
   );
