@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useAuth } from './context/AuthContext';
 import {
-  AboutPage
+  AboutPage,
   CartPage, ContactPage,
   DefaultPage, HomePage,
   ProductsPage, SingleProductPage, SignupPage, LoginPage,
