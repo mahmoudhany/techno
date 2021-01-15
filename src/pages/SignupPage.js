@@ -1,9 +1,18 @@
 import React, { Component, useState } from 'react';
 import { Input } from '../components';
 import { FormValidation } from '../utility/FormValidation';
+<<<<<<< HEAD
+import { Firestore } from '../utility/firebase';
+import { AuthContext } from '../context/AuthContext';
+import { Link } from 'react-router-dom';
+
+class SignupPage extends Component {
+  static contextType = AuthContext
+=======
 import { Auth, Firestore } from '../utility/firebase';
 
 class SignupPage extends Component {
+>>>>>>> 94da99ac5f332ac6e0e3e1ef99e18f73d8afefaf
   state = {
     fields: [
       {
@@ -135,8 +144,11 @@ class SignupPage extends Component {
     Firestore.collection('users').doc(user.uid)
       .set(data)
       .then(() => {
+<<<<<<< HEAD
+=======
         // console.log("Document written with ID: ", user.uid);
         // this.props.onAuth(user)
+>>>>>>> 94da99ac5f332ac6e0e3e1ef99e18f73d8afefaf
         this.setState({ loading: false })
         this.props.history.push('/')
       })
@@ -145,6 +157,33 @@ class SignupPage extends Component {
         console.error("Error adding document: ", error);
       });
   }
+<<<<<<< HEAD
+
+  onSubmit(e, data) {
+    e.preventDefault();
+    const { address, city, country, email, password, firstName, lastName, phone } = data
+    const userData = { email, firstName, lastName, phone, address, city, country }
+    const { fields } = this.state;
+    const { updatedFields, isValid } = FormValidation({ fields });
+    this.setState({ fields: updatedFields });
+
+    if (isValid) {
+      this.setState({
+        isValid: true,
+        loading: true
+      });
+      this.context.signup(email, password)
+        .then(response => {
+          this.submitUserData(userData, response.user)
+        })
+        .catch(error => {
+          this.setState({ loading: false })
+          alert(error.message)
+        })
+    }
+  }
+  render() {
+=======
   signup = (email, password) => {
     this.setState({ loading: true })
     Auth.createUserWithEmailAndPassword(email, password)
@@ -176,6 +215,7 @@ class SignupPage extends Component {
   }
   render() {
 
+>>>>>>> 94da99ac5f332ac6e0e3e1ef99e18f73d8afefaf
     return (
       <div className='container' >
         <form>
@@ -186,6 +226,10 @@ class SignupPage extends Component {
                   key={fld.name}
                   {...fld}
                   onChange={val => this.onChangeInput(val, index)}
+<<<<<<< HEAD
+                  className={` ${fld.name === 'address' ? 'col-12 col-md-12 col-lg-12' : 'col-12 col-md-6 col-lg-6'} `}
+=======
+>>>>>>> 94da99ac5f332ac6e0e3e1ef99e18f73d8afefaf
                 />
               })
             }
@@ -193,6 +237,20 @@ class SignupPage extends Component {
           <button
             type="submit"
             className="btn d-block main-link mb-4 mx-auto"
+<<<<<<< HEAD
+            onClick={(e) => this.onSubmit(e, this.prepareData())}
+            disabled={this.state.loading ? true : false}
+          >Sign up</button>
+        </form>
+        <div className="row mx-auto pb-4">
+          <p className='mx-auto'>Already have an account ? <Link to='/login'>Login</Link></p>
+        </div>
+      </div >
+    );
+  }
+}
+
+=======
             onClick={this.onSubmit}
             disabled={this.state.loading ? true : false}
           >Sign up</button>
@@ -201,5 +259,6 @@ class SignupPage extends Component {
     );
   }
 };
+>>>>>>> 94da99ac5f332ac6e0e3e1ef99e18f73d8afefaf
 
 export default SignupPage;

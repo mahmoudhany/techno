@@ -25,5 +25,4 @@ export const LinkData = [
     text: 'cart',
     path: '/cart'
   }
-
 ]

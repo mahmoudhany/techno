@@ -2,6 +2,7 @@ import React, { Component, createContext } from 'react';
 import { LinkData } from './LinkData';
 import { socialData } from './socialData';
 import { items } from './productData';
+import { Firestore } from '../utility/firebase';
 
 const ProductContext = createContext();
 const ProductConsumer = ProductContext.Consumer;
@@ -33,6 +34,8 @@ class ProductProvider extends Component {
 
   componentDidMount() {
     this.setProducts(items)
+    // make request here
+
   }
 
   setProducts = (products) => {
