@@ -5,7 +5,7 @@ import {
   AboutPage,
   CartPage, ContactPage,
   DefaultPage, HomePage,
-  ProductsPage, SingleProductPage, SignupPage, LoginPage,
+  ProductsPage, SingleProductPage, SignupPage, LoginPage, OrderPage
 } from "./pages";
 import { Navbar, Sidebar, SideCart, Footer, PrivateRoute } from "./components";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,23 +13,19 @@ import './App.css'
 
 function App() {
   const { currentUser } = useAuth()
-
   return (
-
     <div className="App">
-      {/* {console.log(Auth)} */}
       <Navbar />
       <Sidebar />
       <SideCart />
-      {/* <div> */}
-      <Switch>
+      <Switch >
         <Route path='/' exact component={HomePage} />
         <Route path='/about' component={AboutPage} />
         <Route path='/contact' component={ContactPage} />
         <Route path='/Products' exact component={ProductsPage} />
         <Route path='/Products/:id' component={SingleProductPage} />
-        <PrivateRoute path='/cart' component={CartPage} />
-        {/* // signup */}
+        <PrivateRoute path='/cart' exact component={CartPage} />
+        <PrivateRoute path='/order' exact component={OrderPage} />
         {
           !currentUser ?
             <>
@@ -39,12 +35,10 @@ function App() {
             :
             <Redirect to='/' />
         }
-
         <Route component={DefaultPage} />
-      </Switch>
-      {/* </div> */}
+      </Switch >
       <Footer />
-    </div >
+    </div>
   );
 }
 

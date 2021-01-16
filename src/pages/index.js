@@ -7,4 +7,6 @@ import ProductsPage from './ProductsPage'
 import SingleProductPage from './SingleProductPage'
 import SignupPage from './SignupPage'
 import LoginPage from './LoginPage'
-export { AboutPage, CartPage, ContactPage, DefaultPage, HomePage, ProductsPage, SingleProductPage, SignupPage, LoginPage };
+import OrderPage from "./OrderPage";
+
+export { AboutPage, CartPage, ContactPage, DefaultPage, HomePage, ProductsPage, SingleProductPage, SignupPage, LoginPage, OrderPage };
