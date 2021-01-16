@@ -15,6 +15,7 @@ import FilterProducts from './filter';
 import Input from './input';
 import Alert from './alert';
 import PrivateRoute from './privateRoute';
+import Order from './order';
 
 export {
   Navbar,
@@ -33,5 +34,6 @@ export {
   FilterProducts,
   Input,
   Alert,
-  PrivateRoute
+  PrivateRoute,
+  Order
 }

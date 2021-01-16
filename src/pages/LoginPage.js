@@ -66,7 +66,7 @@ class SignupPage extends Component {
       this.context.login(email, password)
         .then(response => {
           this.setState({ loading: false })
-          // console.log('response login ', response);
+
         })
         .catch(error => {
           this.setState({ loading: false })

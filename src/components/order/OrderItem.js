@@ -1,9 +1,8 @@
 import React from 'react';
-import { FaTrash, FaChevronCircleUp, FaChevronCircleDown } from 'react-icons/fa';
 
-const CartItem = ({ cartItem, increment, decrement, removeItem }) => {
+const OrderItem = ({ orderItem }) => {
 
-  const { id, title, price, count, total, image } = cartItem
+  const { title, price, count, total, image } = orderItem
 
   return (
     <div className='container-fluid'>
@@ -20,23 +19,12 @@ const CartItem = ({ cartItem, increment, decrement, removeItem }) => {
         <div className="col-10 mx-auto col-lg-2 pb-2">
           <span className="d-lg-none">Price: </span>${price}
         </div>
-        {/* amount */}
         <div className="col-10 mx-auto col-lg-2 my-2 my-lg-0">
           <div className="d-flex justify-content-center align-items-center">
-            <FaChevronCircleUp
-              onClick={() => { increment(id) }}
-              className='cart-icon text-primary'
-            />
             <span className='text-title text-muted mx-3'>{count}</span>
-            <FaChevronCircleDown
-              onClick={() => { decrement(id) }}
-              className='cart-icon text-primary'
-            />
           </div>
         </div>
-        <div className="col-10 mx-auto col-lg-2 pb-2">
-          <FaTrash className='text-danger cart-icon' onClick={() => { removeItem(id) }} />
-        </div>
+        {/* amount */}
         <div className="col-10 mx-auto col-lg-2 pb-2">
           <strong className='text-muted'>
             <span className="d-lg-none">item total: </span>
@@ -47,4 +35,4 @@ const CartItem = ({ cartItem, increment, decrement, removeItem }) => {
   );
 };
 
-export default CartItem;
+export default OrderItem;

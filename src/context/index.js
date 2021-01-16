@@ -1,7 +1,7 @@
 import React, { Component, createContext } from 'react';
 import { LinkData } from './LinkData';
 import { socialData } from './socialData';
-import { items } from './productData';
+// import { items } from './productData';
 import { Firestore } from '../utility/firebase';
 
 const ProductContext = createContext();
@@ -15,6 +15,7 @@ class ProductProvider extends Component {
     links: LinkData,
     socialIcons: socialData,
     cart: [],
+    order: [],
     cartItems: 0,
     cartSubTotal: 0,
     cartTax: 0,
@@ -23,7 +24,7 @@ class ProductProvider extends Component {
     filteredProducts: [],
     featuredProducts: [],
     singleProduct: {},
-    loading: true,
+    loading: false,
     search: '',
     price: 0,
     min: 0,
@@ -33,10 +34,39 @@ class ProductProvider extends Component {
   }
 
   componentDidMount() {
-    this.setProducts(items)
-    // make request here
+    let docRef = Firestore.collection("products").doc("products");
+    docRef.get().then((doc) => {
+      this.setState({ loading: true })
+      if (doc.exists) {
+        let products = doc.data().items
+        this.setProducts(products)
+        this.setState({ loading: false })
+      } else {
+        console.log("No such document!");
+        this.setState({ loading: false })
+      }
+    }).catch((error) => {
+      this.setState({ loading: false })
+      console.log("Error getting document:", error);
+    });
+
+    // Firestore.collection("products").doc('products').set({ items })
+    //   .then(function () {
+    //     console.log("Document successfully written!");
+    //   })
+    //   .catch(function (error) {
+    //     console.error("Error writing document: ", error);
+    //   });
 
   }
+
+  setOrder = () => {
+    let order = [...this.state.cart]
+    localStorage.setItem('order', JSON.stringify(order))
+    this.setState({ order: order })
+  }
+
+
 
   setProducts = (products) => {
     const storeProducts = products.map(item => {
@@ -57,6 +87,7 @@ class ProductProvider extends Component {
       filteredProducts: storeProducts,
       featuredProducts,
       cart: this.getStorageCart(),
+      order: this.getStorageOrder(),
       singleProduct: this.getStorageProduct(),
       loading: false,
       price: maxPrice,
@@ -65,9 +96,11 @@ class ProductProvider extends Component {
       this.addTotals()
     })
   }
+
   //////////// local storage /////////////
   syncStorage = () => {
     localStorage.setItem('cart', JSON.stringify(this.state.cart))
+    localStorage.setItem('order', JSON.stringify(this.state.order))
   }
   // get cart from local storage
   getStorageCart = () => {
@@ -79,12 +112,21 @@ class ProductProvider extends Component {
     }
     return cart
   }
+  // get order from local storage
+  getStorageOrder = () => {
+    let order;
+    if (localStorage.getItem('order')) {
+      order = JSON.parse(localStorage.getItem('order'))
+    } else {
+      order = []
+    }
+    return order
+  }
   // get product from local storage
   getStorageProduct = () => {
     return localStorage.getItem('singleProduct') ?
       JSON.parse(localStorage.getItem('singleProduct'))
       : {}
-
   }
   // get Totals
   getTotals = () => {
@@ -206,6 +248,14 @@ class ProductProvider extends Component {
       this.syncStorage()
     })
   }
+  clearOrder = () => {
+    this.setState(() => (
+      { order: [] }
+    ), () => {
+      this.addTotals()
+      this.syncStorage()
+    })
+  }
   handleChange = ({ target }) => {
     const name = target.name
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -254,7 +304,9 @@ class ProductProvider extends Component {
         decrement: this.decrement,
         removeItem: this.removeItem,
         clearCart: this.clearCart,
-        handleChange: this.handleChange
+        clearOrder: this.clearOrder,
+        handleChange: this.handleChange,
+        setOrder: this.setOrder
       }}>
         {this.props.children}
       </ProductContext.Provider>
