@@ -27,7 +27,7 @@ function App() {
         <PrivateRoute path='/cart' exact component={CartPage} />
         <PrivateRoute path='/order' exact component={OrderPage} />
         {
-          !currentUser ?
+          !currentUser.user ?
             <>
               <Route path='/signup' exact component={SignupPage} />
               <Route path='/login' exact component={LoginPage} />

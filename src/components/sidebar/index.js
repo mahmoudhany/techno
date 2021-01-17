@@ -23,7 +23,7 @@ const Sidebar = () => {
               </li>
             ))
           }
-          {currentUser ?
+          {currentUser.user ?
             <li>
               <Link
                 id="logout"
@@ -44,13 +44,6 @@ const Sidebar = () => {
             </li>
           }
         </ul>
-        {/* {currentUser &&
-          <div className='text-center'>
-            <Link
-              className='main-link text-center'
-              onClick={() => }
-            >Log out</Link>
-          </div>} */}
       </SidebarWrapper>
     </div>
   );

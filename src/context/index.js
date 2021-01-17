@@ -1,7 +1,7 @@
 import React, { Component, createContext } from 'react';
 import { LinkData } from './LinkData';
 import { socialData } from './socialData';
-// import { items } from './productData';
+import { items } from './productData';
 import { Firestore } from '../utility/firebase';
 
 const ProductContext = createContext();
@@ -50,13 +50,13 @@ class ProductProvider extends Component {
       console.log("Error getting document:", error);
     });
 
-    // Firestore.collection("products").doc('products').set({ items })
-    //   .then(function () {
-    //     console.log("Document successfully written!");
-    //   })
-    //   .catch(function (error) {
-    //     console.error("Error writing document: ", error);
-    //   });
+    Firestore.collection("products").doc('products').set({ items })
+      .then(function () {
+        console.log("Document successfully written!");
+      })
+      .catch(function (error) {
+        console.error("Error writing document: ", error);
+      });
 
   }
 
