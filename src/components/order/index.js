@@ -12,9 +12,11 @@ const Order = (props) => {
   const { order, clearCart, clearOrder } = useContext(ProductContext)
   const { currentUser } = useAuth()
   const history = useHistory()
+
   const orderPayment = (uid, order) => {
-    Firestore.collection('orders').doc(uid)
-      .set({ order })
+    // console.log(order);
+    Firestore.collection('orders/')
+      .add({ _owner_uid: uid, ...order })
       .then(() => {
         clearCart()
         clearOrder()
@@ -38,7 +40,7 @@ const Order = (props) => {
         <button
           className='main-link'
           onClick={() => {
-            orderPayment(currentUser.uid, order)
+            orderPayment(currentUser.user.uid, order)
           }}>pay now</button>
       </div>
     </section >
