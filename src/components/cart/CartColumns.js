@@ -1,7 +1,11 @@
 import React from 'react';
 
 const CartColumns = () => {
-  const columns = ['products', 'name of product', 'price', 'quantity', 'remove', 'total']
+  const columns = ['products',
+    'name of product',
+    'price', 'quantity',
+    'remove',
+    'total']
   return (
     <div className='container-fluid text-center d-none d-lg-block my-5'>
       <div className="row">
