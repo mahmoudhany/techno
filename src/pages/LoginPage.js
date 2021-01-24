@@ -4,7 +4,7 @@ import { FormValidation } from '../utility/FormValidation';
 import { AuthContext } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 
-class SignupPage extends Component {
+class LoginPage extends Component {
   static contextType = AuthContext
   state = {
     fields: [
@@ -106,4 +106,4 @@ class SignupPage extends Component {
 }
 
 
-export default SignupPage;
+export default LoginPage;

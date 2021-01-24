@@ -16,6 +16,7 @@ import Input from './input';
 import Alert from './alert';
 import PrivateRoute from './privateRoute';
 import Order from './order';
+import AsyncComponent from './asyncComponent';
 
 export {
   Navbar,
@@ -35,5 +36,6 @@ export {
   Input,
   Alert,
   PrivateRoute,
-  Order
+  Order,
+  AsyncComponent
 }
