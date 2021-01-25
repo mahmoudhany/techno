@@ -4,14 +4,15 @@ import { Hero } from '../components';
 import singleProductImg from '../images/singleProductBcg.jpeg';
 import { ProductContext } from '../context';
 
-
-const SingleProductPage = () => {
+const SingleProductPage = (props) => {
   const { singleProduct, addToCart, loading } = useContext(ProductContext)
   const { company, description, id, price, title, image } = singleProduct
+  if (!id) {
+    props.history.goBack()
+  }
   return (
-    <div>
+    <>
       <Hero img={singleProductImg} title='single product' />
-
       {
         loading ?
           <h1>product loading...</h1> :
@@ -46,7 +47,7 @@ const SingleProductPage = () => {
           </section>
       }
 
-    </div>
+    </>
   );
 };
 
