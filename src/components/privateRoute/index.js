@@ -7,7 +7,11 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const { currentUser: { user, loaded } } = useAuth();
   const component = props => {
     if (user && loaded) return <Component {...props} />
-    if (!user && loaded) return <Redirect to='/login' />
+    if (!user && loaded) return <Redirect
+      to={{
+        pathname: '/login',
+        state: { from: props.location }
+      }} />
     return null;
   }
   return (

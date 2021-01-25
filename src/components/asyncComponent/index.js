@@ -6,7 +6,6 @@ const AsyncComponent = (importComponent) => {
     state = {
       component: null
     }
-
     componentDidMount() {
       importComponent()
         .then(comp => {
