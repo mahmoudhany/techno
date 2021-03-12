@@ -35,10 +35,10 @@ class ProductProvider extends Component {
 
   componentDidMount() {
     let docRef = Firestore.collection("products").doc("products");
-    docRef.get().then((doc) => {
+    docRef.get().then(async (doc) => {
       this.setState({ loading: true })
       if (doc.exists) {
-        let products = doc.data().items
+        let products = await doc.data().items
         this.setProducts(products)
         this.setState({ loading: false })
       } else {
@@ -50,13 +50,13 @@ class ProductProvider extends Component {
       console.log("Error getting document:", error);
     });
 
-    Firestore.collection("products").doc('products').set({ items })
-      .then(function () {
-        console.log("Document successfully written!");
-      })
-      .catch(function (error) {
-        console.error("Error writing document: ", error);
-      });
+    // Firestore.collection("products").doc('products').set({ items })
+    //   .then(function () {
+    //     console.log("Document successfully written!");
+    //   })
+    //   .catch(function (error) {
+    //     console.error("Error writing document: ", error);
+    //   });
 
   }
 

@@ -16,7 +16,7 @@ const FilterProducts = () => {
     <div className="row my-5">
       <div className="col-10 mx-auto">
         <FilterWrapper>
-          <div>
+          <div className='form-group'>
             <label htmlFor="search">Search Products</label>
             <input
               type="text"
@@ -24,17 +24,17 @@ const FilterProducts = () => {
               id="search"
               onChange={handleChange}
               value={search}
-              className='filter-item'
+              className='form-control filter-item'
             />
           </div>
-          <div>
+          <div className='form-group'>
             <label htmlFor="company">Company</label>
             <select
               name="company"
               id="company"
               onChange={handleChange}
               value={company}
-              className='filter-item'
+              className='form-control filter-item'
             >
               {
                 companies.map((company, i) => (
@@ -43,8 +43,9 @@ const FilterProducts = () => {
               }
             </select>
           </div>
-          <div>
-            <label htmlFor="price">
+          <div className='form-group'>
+
+            <label className='form-label' htmlFor="price">
               <p className="mb-2">
                 Product price: <span>${price}</span>
               </p>
@@ -57,18 +58,19 @@ const FilterProducts = () => {
               max={max}
               onChange={handleChange}
               value={price}
-              className='filter-price'
+              className='form-range filter-price'
             />
           </div>
-          <div>
-            <label htmlFor="shipping">free shipping</label>
+          <div className='form-check'>
             <input
               type="checkbox"
               name="shipping"
               id="shipping"
               onChange={handleChange}
               checked={shipping && true}
+              className='form-check-input'
             />
+            <label className='form-check-label' htmlFor="shipping">free shipping</label>
           </div>
         </FilterWrapper>
       </div>
@@ -88,11 +90,9 @@ const FilterWrapper = styled.div`
     display:block;
     width:100%;
     background:transparent;
-    border-radius:0.5rem;
-    border: 1px solid var(--darkGrey);
-    :focus{
-      outline:0;
-    }
+    /* border-radius:0.5rem; */
+    /* border: 1px solid var(--darkGrey); */
+    outline: none;
   }
 `;
 export default FilterProducts;

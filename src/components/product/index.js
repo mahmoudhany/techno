@@ -43,12 +43,12 @@ const Product = ({ product }) => {
 
 const ProductWrapper = styled.div`
 .card{
-  box-shadow: -1px 2px 12px -5px rgba(0,0,0,0.77);
   transition: var(--mainTransition);
+  border: none;
   height:100%;
+  background: transparent;
 }
 .card:hover{
-  box-shadow: -1px 5px 12px -5px rgba(0,0,0,0.77);
   cursor:pointer;
 }
 
@@ -56,8 +56,8 @@ const ProductWrapper = styled.div`
   transition: var(--mainTransition);
 }
 .card:hover .card-img-top{
-  transform: scale(1.1);
-  opacity:0.1;
+  transform: scale(1.07);
+  opacity:0.3;
 }
 .img-container{
   position: relative;
@@ -82,9 +82,9 @@ const ProductWrapper = styled.div`
   opacity:1;
 }
 .card-body{
-font-weight:bold;
+/* font-weight:semi-bold; */
 letter-spacing:2px;
-text-transform:uppercase;
+text-transform:capitalize;
 }
 `;
 

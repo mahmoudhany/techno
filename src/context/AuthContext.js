@@ -8,9 +8,11 @@ export const useAuth = () => {
 }
 
 const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({
-    user: null,
-    loaded: false
+  const [currentUser, setCurrentUser] = useState(() => {
+    return {
+      user: null,
+      loaded: false
+    }
   })
 
   const signup = (email, password) => {
@@ -25,9 +27,12 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = Auth.onAuthStateChanged((user) => {
-      setCurrentUser({
-        user,
-        loaded: true
+      setCurrentUser(prevState => {
+        return {
+          ...prevState,
+          user,
+          loaded: true
+        }
       })
     })
 

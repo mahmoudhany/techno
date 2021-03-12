@@ -8,7 +8,6 @@ const Title = ({ title, center }) => {
         <h2 className="text-title">{title}</h2>
         <div className="title-underline"></div>
       </div>
-
     </TitleWrapper>
   );
 };

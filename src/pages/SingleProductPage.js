@@ -7,12 +7,10 @@ import { ProductContext } from '../context';
 const SingleProductPage = (props) => {
   const { singleProduct, addToCart, loading } = useContext(ProductContext)
   const { company, description, id, price, title, image } = singleProduct
-  if (!id) {
-    props.history.goBack()
-  }
   return (
     <>
       <Hero img={singleProductImg} title='single product' />
+      {console.log(props.match.params.id)}
       {
         loading ?
           <h1>product loading...</h1> :

@@ -23,7 +23,6 @@ const Products = () => {
                 sorry, no item matched your search
               </div>
               :
-
               filteredProducts.map(product => (
                 <Product key={product.id} product={product} />
               ))
