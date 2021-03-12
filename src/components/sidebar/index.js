@@ -51,13 +51,14 @@ const Sidebar = () => {
 
 const SidebarWrapper = styled.nav`
   position:fixed;
-  top:60px;
+  top:58px;
   left:0; 
   width:100%;
   height:100%;
-  background:var(--mainGrey); 
-  z-index:1;
-  border-right: 4px solid var(--primaryColor);
+  background:var(--mainWhite);
+  z-index: 1;
+  box-shadow: 4px 7px 5px -6px black;
+  overflow: hidden;
   transition: var(--mainTransition);
   transform:${props => (props.show ? "translateX(0)" : "translateX(-100%)")}; 
   ul{
@@ -66,7 +67,7 @@ const SidebarWrapper = styled.nav`
   }
   .sidebar-link{
     display:block;
-    font-size:1.5rem;
+    font-size:1.25rem;
     text-transform: capitalize;
     color: var(--mainBlack);
     padding: 0.5rem 1.5rem;
@@ -76,7 +77,6 @@ const SidebarWrapper = styled.nav`
   .sidebar-link:hover{
     background: var(--primaryColor);
     color:var(--mainWhite);
-    padding: 0.5rem 1.5rem 0.5rem 2.5rem;
     text-decoration: none;
   }
 @media (min-width: 500px){

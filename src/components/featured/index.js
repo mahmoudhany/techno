@@ -18,7 +18,7 @@ const Featured = () => {
         </div>
         <Product />
       </div>
-      <div className="row mt-5">
+      <div className="row mx-0">
         <div className="col text-center">
           <Link to='/products' className='main-link'>
             our products

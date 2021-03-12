@@ -28,27 +28,22 @@ const Services = () => {
       <div className="container">
         <div className="row">
           {state.map(({ id, icon, title, text }) => (
-            <div className="col-10 col-sm-6 col-md-4 mx-auto text-center" key={id}>
+            <div className="col-10 col-sm-6 col-md-4 mx-auto text-center mt-3" key={id}>
               <div className="service-icon">{icon}</div>
-              <div className="mt-3 text-text-capitalize">{title}</div>
+              <div className="mt-3 text-capitalize">{title}</div>
               <div className="mt-3">{text}</div>
             </div>
           ))}
         </div>
       </div>
-
     </ServicesWrapper>
   );
 };
 
 const ServicesWrapper = styled.section`
-background:rgba(95,183,234,0.5);
 .service-icon{
   font-size:2.5rem;
   color: var(--primaryColor);
-}
-p{
-  color:var(--darkGrey)
 }
 `;
 

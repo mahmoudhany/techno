@@ -37,13 +37,13 @@ const SideCart = () => {
 
 const CartWrapper = styled.div`
   position: fixed;
-  top: 61px;
+  top: 58px;
   right:0;
   width:100%;
   height:100%;
   background: var(--mainGrey);
   z-index:1;
-  border-left: 4px solid var(--primaryColor);
+  box-shadow: -4px 7px 5px -6px black;
   transition: var(--mainTransition);
   transform:${props => (props.show ? "translateX(0)" : "translateX(100%)")};
   overflow:scroll;

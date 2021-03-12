@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap&family=Quicksand:wght@300;500;700&family=Raleway:wght@100;300;400;500;600;700&display=swap");
+
 :root {
-  --primaryColor: #5fb7ea;
+  --primaryColor: #006fcc;
   --primaryRGBA: rgba(0, 0, 0, 0.3);
   --mainGrey: #fafafa;
   --darkGrey: #5f5e5e;
@@ -14,8 +14,7 @@
   box-sizing: border-box;
 }
 .text-title {
-  font-family: "Roboto", sans-serif;
-  font-weight: bold;
+  font-family: "Raleway", sans-serif;
   letter-spacing: var(--mainSpacing);
   text-transform: capitalize;
 }
@@ -29,8 +28,9 @@
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
+  outline: 0;
   outline: 2px solid var(--primaryColor);
-  outline-offset: 4px;
+  outline-offset: 0px;
   border: none;
 }
 .main-link:disabled {
@@ -38,17 +38,15 @@
 }
 
 .main-link:hover {
-  background: var(--darkGrey);
+  background: var(--mainGrey);
   text-decoration: none;
   color: var(--primaryColor);
-  outline-color: var(--darkGrey);
 }
 #logout:hover {
   background: #ef4f4f;
 }
 body {
-  font-family: "Open Sans", sans-serif;
-  background: var(--mainGrey);
+  font-family: "Quicksand", sans-serif;
 }
 App {
   min-height: 100%;
