@@ -28,7 +28,6 @@
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: var(--mainSpacing);
-  outline: 0;
   outline: 2px solid var(--primaryColor);
   outline-offset: 0px;
   border: none;
