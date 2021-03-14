@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { Auth } from '../utility/firebase';
+import { ProductContext } from './index';
 
 export const AuthContext = createContext()
 
@@ -8,6 +9,7 @@ export const useAuth = () => {
 }
 
 const AuthProvider = ({ children }) => {
+  const { clearCart, clearOrder } = useContext(ProductContext)
   const [currentUser, setCurrentUser] = useState(() => {
     return {
       user: null,
@@ -22,7 +24,10 @@ const AuthProvider = ({ children }) => {
     return Auth.signInWithEmailAndPassword(email, password)
   }
   const logout = () => {
-    return Auth.signOut()
+    return Auth.signOut().then(() => {
+      clearCart()
+      clearOrder()
+    })
   }
 
   useEffect(() => {
