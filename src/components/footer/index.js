@@ -10,8 +10,8 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-6 d-flex justify-content-center justify-content-md-start">
             <p className="text-capitalize my-md-0 py-2">
-              copyright &copy; tech store {new Date().getFullYear()}. all
-                    rights reserved
+              copyright &copy; techno {new Date().getFullYear()}. all
+              rights reserved
             </p>
           </div>
           <div className="col-md-6 d-flex justify-content-around align-items-center">

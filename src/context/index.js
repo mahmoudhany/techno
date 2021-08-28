@@ -1,7 +1,6 @@
 import React, { Component, createContext } from 'react';
 import { LinkData } from './LinkData';
 import { socialData } from './socialData';
-import { items } from './productData';
 import { Firestore } from '../utility/firebase';
 
 const ProductContext = createContext();
@@ -33,8 +32,8 @@ class ProductProvider extends Component {
     shipping: false
   }
 
-  componentDidMount() {
-    let docRef = Firestore.collection("products").doc("products");
+  async componentDidMount() {
+    let docRef = await Firestore.collection("products").doc("products");
     docRef.get().then(async (doc) => {
       this.setState({ loading: true })
       if (doc.exists) {

@@ -13,8 +13,7 @@ const Navbar = () => {
             <NavWrapper>
               <div className="nav-center">
                 <FaBars className='nav-icon' onClick={handleSidebar} />
-                {/* <img src={logo} alt="Tech store logo" /> */}
-                <h2 className='logo'>Tech Store</h2>
+                <h2 className='logo'>Techno</h2>
                 <div className="nav-cart">
                   <FaCartPlus className='nav-icon' onClick={handleCart} />
                   <div className="cart-items">{cartItems}</div>

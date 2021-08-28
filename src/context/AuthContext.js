@@ -10,12 +10,12 @@ export const useAuth = () => {
 
 const AuthProvider = ({ children }) => {
   const { clearCart, clearOrder } = useContext(ProductContext)
-  const [currentUser, setCurrentUser] = useState(() => {
-    return {
+  const [currentUser, setCurrentUser] = useState(
+    {
       user: null,
       loaded: false
     }
-  })
+  )
 
   const signup = (email, password) => {
     return Auth.createUserWithEmailAndPassword(email, password)
